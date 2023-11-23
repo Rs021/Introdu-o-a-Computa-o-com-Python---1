@@ -1,54 +1,83 @@
-n_global = 0
-m_global = 0
-numero_rodada = 1
+
+def computador_escolhe_jogada(n,m):
 
 
-def computador_escolhe_jogada():
+    m_retirar = int(input())
+    print("O computador tirou uma peça.")
+    return n - m_retirar
+
+def usuario_escolhe_jogada(n,m):
     m_retirar = int(input("Quantas peças você vai tirar?"))
 
     print(f"Voce tirou {m_retirar} peças.")
-    print(f"Agora resta apenas {m_global} peça no tabuleiro.")
-
-
-def usuario_escolhe_jogada():
-    m_retirar = int(input("Quantas peças você vai tirar?"))
-
-    print(f"Voce tirou {m_retirar} peças.")
-    print(f"Agora resta apenas {m_global} peça no tabuleiro.")
-
+    return n - m_retirar
 
 def partida():
-    print("**** Rodada 1 ****")
-    n_global = int(input("Quantas peças?"))
-    m_global = int(input("Limite de peças por jogada?"))
+    print("**** Rodada ****")
+    
+    n = int(input("Quantas peças?"))
+    m = int(input("Limite de peças por jogada?"))
 
-    if n_global % m_global + 1 == 0:
-        usuario_escolhe_jogada()
-        print("Jogador começa")
+    a = False
+
+    if n % (m + 1) == 0:
+        a = True
+    
+    
+    print("Computador começa!")
+    while n > 0:
+
+        if a:
+            n = usuario_escolhe_jogada(n,m)
+           
+        else:
+            n = computador_escolhe_jogada(n,m)
+            
+        print(f"Agora restam {n} peças no tabuleiro.")
+
+        a = not a
+        
+   
+
+    if a:
+        print("Você venceu!")
+        return 1
     else:
-        print("Computador começa!")
-        computador_escolhe_jogada()
+        print("Fim do jogo! O computador ganhou!")
+        return 2      
+
 
 
 def campeonato():
-    partida()
-    partida()
-    partida()
-    pass
+    placar_usuario = 0
+    placar_computador = 0
 
+    for _ in range(3):
+        print(f"**** Rodada {_ + 1} ****")
+        resultado = partida()
+
+        if resultado % 2 == 0:
+            placar_computador += 1
+        else:
+            placar_usuario += 1
+
+    print("**** Final do campeonato! ****")
+    print(f"Placar: Você {placar_usuario} X {placar_computador} Computador")
 
 def main():
     print("Bem-vindo ao jogo do NIM! Escolha:")
     print("1 - para jogar uma partida isolada")
     print("2 - para jogar um campeonato")
 
-    opt = int(input())
+    escolha = int(input())
 
-    if opt == 1:
+    if escolha == 1:
+        print("Voce escolheu um Partida!")
         partida()
 
 
-    elif opt == 2:
+    if escolha == 2:
+        print("Voce escolheu um campeonato!")
         campeonato()
 
     else:
