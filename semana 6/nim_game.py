@@ -7,7 +7,11 @@ def computador_escolhe_jogada(n,m):
     return n - m_retirar
 
 def usuario_escolhe_jogada(n,m):
-    m_retirar = int(input("Quantas peças você vai tirar?"))
+    m_retirar = int(input("Quantas peças você vai tirar?")) 
+    x = True
+    while m_retirar > n or m_retirar > m:
+            print("Oops! Jogada inválida! Tente de novo.")
+            m_retirar = int(input("Quantas peças você vai tirar?")) 
 
     print(f"Voce tirou {m_retirar} peças.")
     return n - m_retirar
