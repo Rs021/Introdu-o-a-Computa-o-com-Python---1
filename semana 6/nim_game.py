@@ -2,14 +2,21 @@
 def computador_escolhe_jogada(n,m):
 
 
-    m_retirar = int(input())
-    print("O computador tirou uma peça.")
-    return n - m_retirar
+    jogada = 1
+    while jogada <= 1:
+        if (n - jogada) % (m + 1) != 0:
+            print(f"O computador tirou {jogada} peças.")
+            return jogada
+        else:
+            jogada += 1
+
+    print(f"O computador tirou {jogada} peças.")
+    return jogada
+
 
 def usuario_escolhe_jogada(n,m):
     m_retirar = int(input("Quantas peças você vai tirar?")) 
-    x = True
-    while m_retirar > n or m_retirar > m:
+    while m_retirar > n or m_retirar < 1:
             print("Oops! Jogada inválida! Tente de novo.")
             m_retirar = int(input("Quantas peças você vai tirar?")) 
 
@@ -17,38 +24,38 @@ def usuario_escolhe_jogada(n,m):
     return n - m_retirar
 
 def partida():
-    print("**** Rodada ****")
-    
-    n = int(input("Quantas peças?"))
-    m = int(input("Limite de peças por jogada?"))
-
-    a = False
-
-    if n % (m + 1) == 0:
-        a = True
-    
-    
-    print("Computador começa!")
-    while n > 0:
-
-        if a:
-            n = usuario_escolhe_jogada(n,m)
-           
-        else:
-            n = computador_escolhe_jogada(n,m)
-            
-        print(f"Agora restam {n} peças no tabuleiro.")
-
-        a = not a
+        print("**** Rodada ****")
         
+        n = int(input("Quantas peças?"))
+        m = int(input("Limite de peças por jogada?"))
+
+        a = False
+
+        if n % (m + 1) == 0:
+            a = True
+        
+        
+        print("Computador começa!")
+        while n > 0:
+
+            if a:
+                n = usuario_escolhe_jogada(n,m)
+            
+            else:
+                n = computador_escolhe_jogada(n,m)
+                
+            print(f"Agora restam {n} peças no tabuleiro.")
+
+            a = not a
+            
    
 
-    if a:
-        print("Você venceu!")
-        return 1
-    else:
-        print("Fim do jogo! O computador ganhou!")
-        return 2      
+        if a:
+            print("Você ganhou!")
+            return 1
+        else:
+            print("O computador ganhou!")
+            return 2      
 
 
 
@@ -75,18 +82,22 @@ def main():
 
     escolha = int(input())
 
+
     if escolha == 1:
+            
         print("Voce escolheu um Partida!")
         partida()
 
 
-    if escolha == 2:
+    elif escolha == 2:
+            
         print("Voce escolheu um campeonato!")
         campeonato()
-
     else:
         print("Digite um numero partida valido")
 
+   
 
 if __name__ == "__main__":
     main()
+    #computador_escolhe_jogada(15,5)
