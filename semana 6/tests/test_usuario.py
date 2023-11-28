@@ -1,4 +1,4 @@
-import nim_game as nim
+import nim_game
 
 def test_user():
-    assert nim.usuario_escolhe_jogada (5,  3, 2) == 3
+    assert nim_game.usuario_escolhe_jogada(5, 3) == 3

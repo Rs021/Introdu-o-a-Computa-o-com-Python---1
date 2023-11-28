@@ -1,36 +1,30 @@
-
-def computador_escolhe_jogada(n,m):
-
-
+def computador_escolhe_jogada(n, m):
     jogada = 1
 
     while jogada != m:
 
         if (n - jogada) % (m + 1) == 0:
             return jogada
-            
+
         else:
-            jogada += 1
+            4
 
     return jogada
 
 
-def usuario_escolhe_jogada(n,m):
-
+def usuario_escolhe_jogada(n, m):
     valid = False
 
-
-    while not valid:   
-        m_retirar = int(input("Quantas peças você vai tirar?")) 
-        if m_retirar > m or m_retirar < 1:  
+    while not valid:
+        m_retirar = int(input("Quantas peças você vai tirar?"))
+        if m_retirar > m or m_retirar < 1:
             print("Oops! Jogada inválida! Tente de novo.")
 
         else:
             valid = True
 
     return m_retirar
-    
-    
+
 
 def partida():
     n = int(input('Quantas peças? '))
@@ -39,7 +33,7 @@ def partida():
 
     vezDoPC = False
 
-    if n % (m+1) == 0:
+    if n % (m + 1) == 0:
         print()
         print('Voce começa!')
 
@@ -82,11 +76,10 @@ def partida():
 
 
 def campeonato():
-    
     rodada = 1
 
     while rodada <= 3:
-        print('**** Rodada', rodada, '****')    
+        print('**** Rodada', rodada, '****')
         partida()
         rodada += 1
 
@@ -100,16 +93,12 @@ print("2 - para jogar um campeonato")
 
 escolha = int(input())
 
-
 if escolha == 1:
-            
-        print("Voce escolheu um Partida!")
-        partida()
+
+    print("Voce escolheu um Partida!")
+    partida()
 
 else:
-            
+
     print("Voce escolheu um campe   onato!")
     campeonato()
-    
-   
-
