@@ -2,17 +2,17 @@
 def computador_escolhe_jogada(n,m):
 
 
-    peca = 1
+    jogada = 1
 
-    while peca != m:
+    while jogada != m:
 
-        if (n - peca) % (m + 1) == 0:
-            return peca
+        if (n - jogada) % (m + 1) == 0:
+            return jogada
             
         else:
-            peca += 1
+            jogada += 1
 
-    return peca
+    return jogada
 
 
 def usuario_escolhe_jogada(n,m):
@@ -37,7 +37,7 @@ def partida():
 
     m = int(input('Limite de peças por jogada? '))
 
-    pc = False
+    vezDoPC = False
 
     if n % (m+1) == 0:
         print()
@@ -46,30 +46,30 @@ def partida():
     else:
         print()
         print('Computador começa!')
-        pc = True
+        vezDoPC = True
 
     while n > 0:
-        if pc:
-            peca_pc = computador_escolhe_jogada(n, m)
-            n = n - peca_pc
-            if peca_pc == 1:
+        if vezDoPC:
+            computadorRemove = computador_escolhe_jogada(n, m)
+            n = n - computadorRemove
+            if computadorRemove == 1:
                 print()
                 print('O computador tirou uma peça')
             else:
                 print()
-                print('O computador tirou', peca_pc, 'peças')
+                print('O computador tirou', computadorRemove, 'peças')
 
-            pc = False
+            vezDoPC = not vezDoPC
         else:
-            peca_jg = usuario_escolhe_jogada(n, m)
-            n = n - peca_jg
-            if peca_jg == 1:
+            jogadorRemove = usuario_escolhe_jogada(n, m)
+            n = n - jogadorRemove
+            if jogadorRemove == 1:
                 print()
                 print('Você tirou uma peça')
             else:
                 print()
-                print('Você tirou', peca_jg, 'peças')
-            pc = True
+                print('Você tirou', jogadorRemove, 'peças')
+            vezDoPC = True
         if n == 1:
             print('Agora resta apenas uma peça no tabuleiro.')
             print()
