@@ -10,6 +10,8 @@ Meu progresso no curso <a href="https://www.coursera.org/learn/ciencia-computaca
 <li><a href="/semana 6">Semana 6</a></li>
 <li><a>Semana 7</a></li>
 <li><a>Semana 8</a></li>
+<li><a>Semana 9</a></li>
+
 </ul>
 
 
