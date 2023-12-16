@@ -8,7 +8,7 @@
 <li><a>Semana 4</a></li>
 <li><a href="/semana 5">Semana 5</a></li>
 <li><a href="/semana 6">Semana 6</a></li>
-<li><a>Semana 7</a></li>
+<li><a href="/semana 7">Semana 7</a></li>
 <li><a>Semana 8</a></li>
 <li><a>Semana 9</a></li>
 
