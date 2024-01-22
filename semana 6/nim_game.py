@@ -16,7 +16,7 @@ def usuario_escolhe_jogada(n, m):
 
     while not valid:
         m_retirar = int(input("Quantas peças você vai tirar?"))
-        if m_retirar > m or m_retirar < 1:
+        if m_retirar > m or m_retirar < 1 or m_retirar == ValueError():
             print("Oops! Jogada inválida! Tente de novo.")
 
         else:

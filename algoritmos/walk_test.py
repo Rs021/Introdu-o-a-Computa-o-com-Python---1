@@ -1,28 +1,7 @@
 def is_valid_walk(walk):
-    north = 0
-    south = 0
-    west = 0
-    east = 0
-
     if len(walk) == 10:
-        for times, char in enumerate(walk):
-            if char == "n":
-                north += 1
-            if char == "s":
-                south += 1
-            if char == "e":
-                east += 1
-            if char == "w":
-                west += 1
-
-        if north == south and west == east:
-            return True
-
-        else:
-            return False
-
-    else:
-        return False
+        return walk.count("w") == walk.count("e") and walk.count("s") == walk.count("n")
+    return False
 
 
 def test():
